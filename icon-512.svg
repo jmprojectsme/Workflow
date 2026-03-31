@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a3a5c"/>
+      <stop offset="100%" stop-color="#0f2236"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f6ad55"/>
+      <stop offset="100%" stop-color="#ed8936"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect x="72" y="148" width="368" height="8" rx="4" fill="#ffffff" opacity="0.07"/>
+  <rect x="72" y="186" width="368" height="8" rx="4" fill="#ffffff" opacity="0.07"/>
+  <rect x="72" y="224" width="368" height="8" rx="4" fill="#ffffff" opacity="0.07"/>
+  <text x="256" y="345" font-family="Georgia, serif" font-weight="700" font-size="232" fill="white" text-anchor="middle" letter-spacing="-10">W</text>
+  <rect x="96" y="390" width="320" height="20" rx="10" fill="url(#accent)"/>
+  <circle cx="404" cy="112" r="44" fill="url(#accent)"/>
+  <text x="404" y="128" font-family="Arial" font-size="46" font-weight="bold" fill="white" text-anchor="middle">✓</text>
+</svg>
