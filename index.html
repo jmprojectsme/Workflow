@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>WorkFlow — Accounting Edition</title>
+
+  <!-- PWA Meta -->
+  <meta name="theme-color" content="#1a3a5c">
+  <meta name="description" content="Step-by-step workflow checklist for accounting and finance tasks.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="WorkFlow">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="icons/icon-192.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.svg">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PWA Install Banner -->
+  <div class="install-banner" id="installBanner">
+    <span>📲 Add WorkFlow to your home screen for offline use</span>
+    <div style="display:flex;gap:6px">
+      <button class="btn-install" onclick="installApp()">Install</button>
+      <button class="btn-dismiss" onclick="dismissInstall()">✕</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon">W</div>
+      <div class="logo-text">Work<span>Flow</span></div>
+    </div>
+    <div class="header-meta" id="clockDisplay">— —:— —<br>Accounting Edition</div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- Workflows List -->
+    <div class="section-label">My Workflows</div>
+    <div id="workflowList"></div>
+
+    <!-- Add New Workflow -->
+    <div class="add-section">
+      <div class="section-label">Add New Workflow</div>
+      <div class="add-card">
+
+        <div class="input-row">
+          <div class="field-group" style="max-width:68px">
+            <label class="field-label">Icon</label>
+            <select id="newIcon">
+              <option>📊</option><option>📋</option><option>🧾</option>
+              <option>💰</option><option>📁</option><option>🏦</option>
+              <option>📝</option><option>🔍</option><option>📅</option>
+              <option>⚖️</option><option>💳</option><option>📤</option>
+              <option>🔒</option><option>📌</option><option>🗂️</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Workflow Name</label>
+            <input type="text" id="newName" placeholder="e.g. Monthly Bank Reconciliation">
+          </div>
+          <div class="field-group" style="max-width:130px">
+            <label class="field-label">Frequency</label>
+            <select id="newFreq">
+              <option>Daily</option>
+              <option>Weekly</option>
+              <option>Monthly</option>
+              <option>Quarterly</option>
+              <option>As needed</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="field-label">Steps</label>
+        <div class="steps-input-list" id="stepsInputList"></div>
+        <button class="add-step-btn" onclick="addStepInput()">+ Add Step</button>
+
+        <button class="save-btn" onclick="saveWorkflow()">Save Workflow</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW registered:', reg.scope))
+          .catch(err => console.warn('SW registration failed:', err));
+      });
+    }
+  </script>
+
+</body>
+</html>
